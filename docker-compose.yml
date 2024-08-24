@@ -15,6 +15,14 @@ services:
     networks:
       - dailyvs_network
 
+  frontend:
+    build: ./DailyVS_client
+    container_name: frontend
+    ports:
+      - "80:80"  # Nginx가 80번 포트를 사용하므로, 이 포트를 열어둠
+    networks:
+      - dailyvs_network
+
 networks:
   dailyvs_network:
     driver: bridge
