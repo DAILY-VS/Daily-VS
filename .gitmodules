@@ -1,0 +1,6 @@
+[submodule "DailyVS_client"]
+	path = DailyVS_client
+	url = https://github.com/DAILY-VS/DailyVS_client.git
+[submodule "DailyVS_server"]
+	path = DailyVS_server
+	url = https://github.com/DAILY-VS/DailyVS_server.git
