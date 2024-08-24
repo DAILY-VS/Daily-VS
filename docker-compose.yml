@@ -6,11 +6,12 @@ services:
     container_name: server
     command: ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi:application"]
     volumes:
-      - .:/app
+      - ./DailyVS_server:/app 
     ports:
       - "8000:8000"
     environment:
-      DJANGO_SETTINGS_MODULE: config.settings.prod
+      - DJANGO_SETTINGS_MODULE=config.settings.prod
+      - PYTHONPATH=/app
     networks:
       - dailyvs_network
 
