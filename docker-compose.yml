@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./DailyVS_server
+    container_name: server
+    command: ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi:application"]
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.prod
+    networks:
+      - dailyvs_network
+
+networks:
+  dailyvs_network:
+    driver: bridge
