@@ -14,15 +14,15 @@ services:
       - PYTHONPATH=/app
     networks:
       - dailyvs_network
-  frontend:
-    build: ./DailyVS_client
-    container_name: frontend
-    ports:
-      - "80:80"  # Nginx가 80번 포트를 사용
-    networks:
-      - dailyvs_network
-    environment:
-      - REACT_APP_API_BASE_URL=http://server:8000  # Django 서비스와 통신
+  # frontend:
+  #   build: ./DailyVS_client
+  #   container_name: frontend
+  #   ports:
+  #     - "80:80"  # Nginx가 80번 포트를 사용
+  #   networks:
+  #     - dailyvs_network
+  #   environment:
+  #     - REACT_APP_API_BASE_URL=http://server:8000  # Django 서비스와 통신
 
 networks:
   dailyvs_network:
