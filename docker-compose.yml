@@ -6,6 +6,8 @@ services:
     container_name: server
     volumes:
       - ./DailyVS_server:/app
+      - ./staticfiles:/app/staticfiles  # Django STATIC_ROOT
+      - ./media:/app/media              # Django MEDIA_ROOT
     ports:
       - "8000:8000"
     environment:
@@ -19,6 +21,8 @@ services:
     container_name: frontend
     ports:
       - "80:80"
+    volumes:
+      - ./DailyVS_client/nginx/default.conf:/etc/nginx/conf.d/default.conf  # Nginx 설정 파일 마운트
     networks:
       - dailyvs_network
     depends_on:
